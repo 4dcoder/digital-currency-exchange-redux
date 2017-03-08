@@ -1,3 +1,5 @@
+require('babel-register');
+require('babel-polyfill');
 require('dotenv').config();
 let cluster = require('cluster');
 

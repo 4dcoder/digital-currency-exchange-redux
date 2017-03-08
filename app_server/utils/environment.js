@@ -14,15 +14,15 @@ class Environment {
     return process.env.NODE_ENV == DEVELOPMENT_ENVIRONMENT;
   }
 
-  getPoloniexURI() {
+  getPoloniexURL() {
     return this.get('POLONIEX_URL');
   }
 
-  getBittrexURI() {
+  getBittrexURL() {
     return this.get('BITTREX_URL');
   }
 
-  getBtceURI() {
+  getBtceURL() {
     return this.get('BTCE_URL');
   }
 
