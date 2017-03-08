@@ -1,6 +1,8 @@
 Digital currency exchange
 ================================
 
+
+
 **Required components for running the application in development mode**
 ```
 node v6.9.4
@@ -23,3 +25,5 @@ npm run dev_server
 ```
 
 Open http://localhost:8080 in your browser.
+
+The app does not track results.
