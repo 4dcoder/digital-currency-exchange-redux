@@ -1,8 +1,8 @@
-var express = require('express');
-var apiRoutes = express.Router();
-var logger = require('../utils/logger');
+let express = require('express');
+let apiRoutes = express.Router();
+let logger = require('../utils/logger');
+var exchangeController = require('../api_controllers/exchange');
 
-
-// apiRoutes.get('/v1/organizations', organizationController.list);
+apiRoutes.get('/v1/exchanges', exchangeController.list);
 
 module.exports = apiRoutes;

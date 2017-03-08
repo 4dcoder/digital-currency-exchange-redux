@@ -1,7 +1,3 @@
-//this is reading the .env, which will be for local development
-//on higher env, we will rely on the env to be set externally
-//which will take precedence and wont be overridden by
-//env letiables in the .env
 require('dotenv').config();
 let cluster = require('cluster');
 
@@ -38,18 +34,25 @@ if (cluster.isMaster) {
   app.set('view engine', 'jade');
 
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-
-// log configuration
+  // log configuration
   app.use(require('morgan')('dev', {stream: logger.stream}));
 
-// use body parser so we can get info from POST and/or URL parameters
+  // use body parser so we can get info from POST and/or URL parameters
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(express.static(staticDir));
 
-// routing configuration
+  // setup CORS
+  app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-access-token');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Expose-Headers', 'Location');
+    res.header('Access-Control-Max-Age', '1728000');
+    next();
+  });
+
+  // routing configuration
   app.use('/api', api);
 
 
@@ -64,10 +67,10 @@ if (cluster.isMaster) {
     next(err);
   });
 
-// error handlers
+  // error handlers
 
-// development error handler
-// will print stacktrace
+  // development error handler
+  // will print stacktrace
   if (environment.isDevelopment()) {
     app.use((err, req, res, next) => {
       res.status(err.status || 500);
@@ -78,8 +81,8 @@ if (cluster.isMaster) {
     });
   }
 
-// production error handler
-// no stacktraces leaked to user
+  // production error handler
+  // no stacktraces leaked to user
   app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error', {

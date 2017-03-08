@@ -6,6 +6,12 @@ Digital currency exchange
 npm install
 ```
 
+**Required components for running the application in development mode**
+```
+node v6.9.4
+nodemon
+```
+
 **Start the internal application in development mode**
 ```
 npm run dev
