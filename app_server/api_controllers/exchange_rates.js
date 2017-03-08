@@ -13,7 +13,11 @@ class ExchangeRatesController {
         return currency;
       })
       sortedCurrencies.forEach((currency) => {
-        logger.debug(`best price for Bitcoin to ${currency.name}`, currency.rates[0]);
+        logger.debug(`all rates for Bitcoin to ${currency.name}`, currency.rates);
+      });
+
+      sortedCurrencies.forEach((currency) => {
+        logger.debug(`best rate for Bitcoin to ${currency.name}`, currency.rates[0]);
       });
       res.json(sortedCurrencies);
     });
