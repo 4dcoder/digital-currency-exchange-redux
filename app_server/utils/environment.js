@@ -26,6 +26,10 @@ class Environment {
     return this.get('BTCE_URL');
   }
 
+  getRedisURL() {
+    return this.get('REDIS_URL');
+  }
+
   toString() {
     return process.env.NODE_ENV;
   }

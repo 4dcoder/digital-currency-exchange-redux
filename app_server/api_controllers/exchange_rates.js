@@ -2,6 +2,7 @@ let logger = require('../utils/logger');
 let Constants = require('../utils/constants');
 let RateUtils = require('../utils/rate_utils');
 let bitcoinExchangeRate = require('../services/bitcoin_exchange_rate');
+let cache=require('../services/cache');
 
 class ExchangeRatesController {
   list(req, res) {
@@ -16,6 +17,7 @@ class ExchangeRatesController {
         logger.debug(`all rates for Bitcoin to ${currency.name}`, currency.rates);
       });
 
+      cache.setExchangeRates(new Date(), sortedCurrencies);
       sortedCurrencies.forEach((currency) => {
         logger.debug(`best rate for Bitcoin to ${currency.name}`, currency.rates[0]);
       });

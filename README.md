@@ -7,6 +7,7 @@ Digital currency exchange
 ```
 node v6.9.4
 nodemon
+redis
 modern browser with cors support
 ```
 
@@ -37,5 +38,5 @@ Open http://localhost:3000 in your browser.
 Enter a bitcoin amount and click calculate
 The exchanged amount for three currencies will be displayed below
 
-The app does not track results.
+The app store requested exchange rates in redis keyed by time 
 The app integrates with Bittrex and Poloniex
