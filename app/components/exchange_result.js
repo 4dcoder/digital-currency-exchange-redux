@@ -11,6 +11,9 @@ class ExchangeResult extends Component {
     return currencies.map((currency) => {
       return (
         <div>
+          <span>{currency.name} exchange: </span>
+          <span>{currency.rates[0].exchange}</span>
+          <br/>
           <span>{currency.name} rate: </span>
           <span>{currency.rates[0].bid}</span>
           <br/>
