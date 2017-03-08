@@ -24,12 +24,10 @@ class Exchange extends Component {
   render() {
     return (
       <div>
-        <label name="bitcoin">Bitcoin amount to convert</label>
+        <label name="bitcoin">Bitcoin amount: </label>
         <input type='text'
                ref={(ref) => this.bitcoinInput = ref}/>
-        <button id="lookup" onClick={this._handleConvert.bind(this)}
-                className="">Convert
-        </button>
+        <button id="lookup" onClick={this._handleConvert.bind(this)}>Calculate</button>
       </div>
     );
   }
