@@ -3,7 +3,7 @@ let Constants = require('../utils/constants');
 let RateUtils = require('../utils/rate_utils');
 let bitcoinExchangeRate = require('../services/bitcoin_exchange_rate');
 
-class ExchangeController {
+class ExchangeRatesController {
   list(req, res) {
     let promise = bitcoinExchangeRate.getCurrentExchangeRates([Constants.CURRENCIES.ETHERIUM, Constants.CURRENCIES.LITECOIN, Constants.CURRENCIES.DASH]);
 
@@ -21,4 +21,4 @@ class ExchangeController {
 
   }
 }
-module.exports = new ExchangeController();
+module.exports = new ExchangeRatesController();

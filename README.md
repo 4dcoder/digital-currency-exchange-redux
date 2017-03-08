@@ -10,6 +10,7 @@ npm install
 ```
 node v6.9.4
 nodemon
+redis
 ```
 
 **Start the internal application in development mode**

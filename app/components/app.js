@@ -1,7 +1,10 @@
 import React, {Component, PropTypes as T} from 'react';
 import {render} from 'react-dom';
 import {Container} from 'flux/utils';
-import ExchangeRateResultStore from '../stores/ExchangeRateResultStore';
+import ExchangeStore from '../stores/exchange_store';
+import Exchange from './exchange';
+import ExchangeResult from './exchange_result';
+import ExchangeActions from '../actions/exchange_actions';
 
 class App extends Component {
 
@@ -9,10 +12,15 @@ class App extends Component {
     super(...arguments);
   }
 
+  _handleConvert(options) {
+    ExchangeActions.exchange(options);
+  }
+
   render() {
     return (
       <div>
-        hi
+        <Exchange onConvert={this._handleConvert.bind(this)}/>
+        <ExchangeResult result={this.state.exchangeResult}/>
       </div>
     );
   }
@@ -23,13 +31,13 @@ App.propTypes = {
 };
 
 App.getStores = () => ([
-  ExchangeRateResultStore
+  ExchangeStore
 ]);
 
 /*eslint no-unused-vars: 0*/
 App.calculateState = (prevState) => {
   return {
-    results: ExchangeRateResultStore.getState()
+    exchangeResult: ExchangeStore.getState()
   };
 };
 
