@@ -9,8 +9,9 @@ class ExchangeResult extends Component {
 
   _buidCurrencyResults(amount, currencies) {
     return currencies.map((currency) => {
+      //error handling needed for empty rates
       return (
-        <div>
+        <div key={currency.name}>
           <span>{currency.name} exchange: </span>
           <span>{currency.rates[0].exchange}</span>
           <br/>
@@ -27,7 +28,6 @@ class ExchangeResult extends Component {
 
   _buildExchangeResult() {
     let {result} = this.props;
-    console.log(result);
 
     if (!result.currencies || result.currencies.length < 1) {
       return null;

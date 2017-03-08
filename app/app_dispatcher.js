@@ -2,7 +2,6 @@ import {Dispatcher} from 'flux';
 
 class AppDispatcher extends Dispatcher {
   dispatch(action = {}) {
-    // console.log('dispatching action', action);
     super.dispatch(action);
   }
 
