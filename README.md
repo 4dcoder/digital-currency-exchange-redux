@@ -30,3 +30,4 @@ Enter a bitcoin amount and click calculate
 The exchanged amount for three currencies will be displayed below
 
 The app does not track results.
+The app integrates with Bittrex and Poloniex
