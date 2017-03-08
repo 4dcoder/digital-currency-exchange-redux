@@ -7,7 +7,6 @@ Digital currency exchange
 ```
 node v6.9.4
 nodemon
-redis
 modern browser with cors support
 ```
 
