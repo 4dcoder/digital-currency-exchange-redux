@@ -35,8 +35,10 @@ Open http://localhost:3000 in your browser.
 
 
 
+**Informational**
+```
 Enter a bitcoin amount and click calculate
 The exchanged amount for three currencies will be displayed below
-
 The app store requested exchange rates in redis keyed by time 
 The app integrates with Bittrex and Poloniex
+```
