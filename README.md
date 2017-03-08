@@ -22,9 +22,18 @@ open a terminal
 npm run dev_client
 open another terminal
 npm run dev_server
+Open http://localhost:8080 in your browser.
 ```
 
-Open http://localhost:8080 in your browser.
+**Start the internal application in prod mode**
+```
+open a terminal
+npm run prod
+npm start
+Open http://localhost:3000 in your browser.
+```
+
+
 
 Enter a bitcoin amount and click calculate
 The exchanged amount for three currencies will be displayed below

@@ -12,6 +12,7 @@
     "test": "node tools/runTests.js",
     "dev_client": "NODE_ENV=development webpack-dev-server --progress --hot",
     "dev_server": "NODE_ENV=development nodemon --debug server.js",
+    "prod": "BABEL_ENV=production webpack --progress --config webpack-prod.config.js -p",
     "start": "NODE_ENV=production node server.js"
   },
   "devDependencies": {
