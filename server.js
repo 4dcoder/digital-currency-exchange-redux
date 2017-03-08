@@ -14,7 +14,6 @@ if (cluster.isMaster) {
   let express = require('express');
   let path = require('path');
   let bodyParser = require('body-parser');
-  let flash = require('connect-flash');
   let logger = require('./app_server/utils/logger');
   let api = require('./app_server/routes/api');
   let environment = require('./app_server/utils/environment');

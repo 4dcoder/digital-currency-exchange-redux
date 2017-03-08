@@ -48,14 +48,16 @@ var config = {
   },
 };
 
-console.log('lets setup some environment variables');
-config.plugins.push(...[
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('development'),
-      EXCHANGE_RATES_API_URL: JSON.stringify('http://localhost:3000/api/v1/exchangeRates'),
-    }
-  })
-]);
+if ('development' === process.env.NODE_ENV) {
+  console.log('In development mode, lets setup some environment variables');
+  config.plugins.push(...[
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development'),
+        EXCHANGE_RATES_API_URL: JSON.stringify('http://localhost:3000/api/v1/exchangeRates'),
+      }
+    })
+  ]);
+}
 
 module.exports = config;
