@@ -4,7 +4,7 @@ import Constants from '../constants';
 
 class ReportStore extends ReduceStore {
   getInitialState() {
-    return {};
+    return [];
   }
 
   reduce(state, action) {
