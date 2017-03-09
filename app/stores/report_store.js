@@ -10,7 +10,7 @@ class ReportStore extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
       case Constants.FETCH_REPORTS_CURRENCIES_SUCCESS:
-        console.log('blah',action.payload.response);
+        // console.log('blah',action.payload.response);
         return action.payload.response;
       default:
         return state;
