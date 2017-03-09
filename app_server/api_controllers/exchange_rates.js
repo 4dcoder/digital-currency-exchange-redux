@@ -2,7 +2,7 @@ let logger = require('../utils/logger');
 let Constants = require('../utils/constants');
 let RateUtils = require('../utils/rate_utils');
 let bitcoinExchangeRate = require('../services/bitcoin_exchange_rate');
-let cache=require('../services/cache');
+let cache = require('../services/cache');
 
 class ExchangeRatesController {
   list(req, res) {
@@ -10,6 +10,8 @@ class ExchangeRatesController {
 
     promise.then((currencies) => {
       let sortedCurrencies = currencies.map((currency) => {
+        //ugh destructive sort, not quite functional
+        //will leave the map as is until a non destructive sort is implemented
         RateUtils.sortByLowestBid(currency.rates);
         return currency;
       })
