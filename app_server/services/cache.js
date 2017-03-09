@@ -17,34 +17,41 @@ const getReportField = function(date) {
   return `${date.toString()}`;
 }
 
-const hashKey='exchangeRates';
+const hashKey = 'exchangeRates';
 
 class Cache {
   constructor() {
   }
 
-  setExchangeRates(date, value) {
+  setCurrencies(date, currencies) {
     const reportField = getReportField(date);
-    client.hset(hashKey, reportField, JSON.stringify([value]));
-    logger.debug('redis hset ', `${hashKey} ${reportField} ${value}`);
+    client.hset(hashKey, reportField, JSON.stringify(currencies));
+    logger.debug('redis hset ', `${hashKey} ${reportField} ${currencies}`);
   }
 
-  getAllRates() {
+  getAllCurrencies() {
     return new Promise(function(resolve, reject) {
       if (redisError) {
         reject(redisError)
       }
       else {
-        client.hgetAll(hashKey, function(err, reply) {
+        client.hgetall(hashKey, function(err, reply) {
           if (err) {
             reject(err);
           }
           else {
             if (reply) {
-              resolve(JSON.parse(reply));
+              let keys = Object.keys(reply)
+              let dateCurrencies = keys.map((key) => {
+                return {
+                  date: new Date(key),
+                  currencies: JSON.parse(reply[key])
+                }
+              });
+              resolve(dateCurrencies);
             }
             else {
-              resolve([]);
+              resolve({});
             }
           }
         });

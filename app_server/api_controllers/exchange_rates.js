@@ -17,14 +17,15 @@ class ExchangeRatesController {
         logger.debug(`all rates for Bitcoin to ${currency.name}`, currency.rates);
       });
 
-      cache.setExchangeRates(new Date(), sortedCurrencies);
+      cache.setCurrencies(new Date(), sortedCurrencies);
+      cache.getAllCurrencies().then((result) => {
+        console.log(result);
+      })
       sortedCurrencies.forEach((currency) => {
         logger.debug(`best rate for Bitcoin to ${currency.name}`, currency.rates[0]);
       });
       res.json(sortedCurrencies);
     });
-
-
   }
 }
 module.exports = new ExchangeRatesController();
