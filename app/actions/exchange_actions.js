@@ -2,7 +2,7 @@ import AppDispatcher from '../app_dispatcher';
 import ExchangeAPI from '../apis/exchange_api';
 import Constants from '../constants';
 
-let ConvertActions = {
+let ExchangeActions = {
   exchange(options) {
     let promise = ExchangeAPI.fetchExchangeRates().then((currencies) => {
       return Object.assign({}, options, {currencies});
@@ -15,4 +15,4 @@ let ConvertActions = {
   }
 };
 
-export default ConvertActions;
+export default ExchangeActions;

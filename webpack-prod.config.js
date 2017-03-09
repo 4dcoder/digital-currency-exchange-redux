@@ -22,7 +22,8 @@ config.plugins.push(...[
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: JSON.stringify('production'),
-      EXCHANGE_RATES_API_URL: JSON.stringify('http://localhost:3000/api/v1/exchangeRates')
+      EXCHANGE_RATES_API_URL: JSON.stringify('http://localhost:3000/api/v1/exchangeRates'),
+      REPORTS_CURRENCIES_API_URL: JSON.stringify('http://localhost:3000/api/v1/reports/currencies')
     }
   }),
   new webpack.optimize.OccurenceOrderPlugin(),

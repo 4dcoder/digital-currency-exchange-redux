@@ -55,6 +55,7 @@ if ('development' === process.env.NODE_ENV) {
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
         EXCHANGE_RATES_API_URL: JSON.stringify('http://localhost:3000/api/v1/exchangeRates'),
+        REPORTS_CURRENCIES_API_URL: JSON.stringify('http://localhost:3000/api/v1/reports/currencies')
       }
     })
   ]);
