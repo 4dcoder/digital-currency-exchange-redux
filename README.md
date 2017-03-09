@@ -38,7 +38,9 @@ Open http://localhost:3000 in your browser.
 **Informational**
 ```
 Enter a bitcoin amount and click calculate
+
 The exchanged amount for three currencies will be displayed below.
+
 The report component display all the requested exchange rates keyed by time.  
 It does not store the requested bitcoin amount at that date.  
 That is easy enough to do, I just didn't know if that was a requirement.
