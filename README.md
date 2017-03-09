@@ -39,6 +39,7 @@ Open http://localhost:3000 in your browser.
 ```
 Enter a bitcoin amount and click calculate
 The exchanged amount for three currencies will be displayed below
-The app store requested exchange rates in redis keyed by time 
+The app store requested exchange rates in redis keyed by time
+The repors component display the exchange rates.  It does not store the requested bitcoin amount at that date.  That is easy enough to do, I just didn't know if that was a requirement.
 The app integrates with Bittrex and Poloniex
 ```
