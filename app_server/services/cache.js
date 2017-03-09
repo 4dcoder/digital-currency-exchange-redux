@@ -26,7 +26,7 @@ class Cache {
   setCurrencies(date, currencies) {
     const reportField = getReportField(date);
     client.hset(hashKey, reportField, JSON.stringify(currencies));
-    logger.debug('redis hset ', `${hashKey} ${reportField} ${currencies}`);
+    // logger.debug('redis hset ', `${hashKey} ${reportField} ${currencies}`);
   }
 
   getAllCurrencies() {
