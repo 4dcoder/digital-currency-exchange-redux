@@ -43,7 +43,7 @@ The exchanged amount for three currencies will be displayed below.
 
 The report component display all the requested exchange rates keyed by time.  
 It does not store the requested bitcoin amount at that date.  
-Right now it is just a stringify json payload.  Idea is to generate a line graph with y=bitcoin value x=time
+Right now it is just a stringify json payload.  Idea is to generate a line graph with y=bitcoin, x=time
 
 The app integrates with Bittrex and Poloniex
 ```
