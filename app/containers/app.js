@@ -3,7 +3,8 @@ import {render} from 'react-dom'
 import {connect} from 'react-redux'
 import Exchange from '../components/exchange'
 import ExchangeResult from '../components/exchange_result'
-import {selectBitCoin, fetchExchangeRates} from '../actions'
+import ExchangeReport from '../components/exchange_report'
+import {selectBitCoin, fetchExchangeRates, fetchExchangeReports} from '../actions'
 
 class App extends Component {
 
@@ -23,18 +24,19 @@ class App extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // if (nextState.exchangeResult !== this.state.exchangeResult) {
-    //   ReportActions.getAllCurrencies()
-    // }
+    const {dispatch} = nextProps
+    if (nextProps.currencies !== this.props.currencies) {
+      dispatch(fetchExchangeReports())
+    }
   }
 
   render() {
-    const {selectedBitcoin, currencies, isFetching} = this.props
+    const {selectedBitcoin, currencies, isFetching, currencyReports} = this.props
     return (
       <div>
         <Exchange onConvert={this._handleConvert.bind(this)}/>
         <ExchangeResult result={{amount: selectedBitcoin, currencies}}/>
-        {/*<ExchangeReport currencies={currencies}/>*/}
+        <ExchangeReport currencies={currencyReports}/>
       </div>
     )
   }
@@ -46,16 +48,19 @@ App.propTypes = {
   selectedBitcoin: T.number,
   isFetching: T.bool,
   currencies: T.array,
+  currencyReports: T.array
 }
 
 const mapStateToProps = state => {
-  const {selectedBitcoin, exchangeRates} = state
+  const {selectedBitcoin, exchangeRates, exchangeReports} = state
   const {isFetching, currencies}=exchangeRates
+  const {currencies : currencyReports}=exchangeReports
 
   return {
     selectedBitcoin,
     isFetching,
-    currencies
+    currencies,
+    currencyReports
   }
 }
 
