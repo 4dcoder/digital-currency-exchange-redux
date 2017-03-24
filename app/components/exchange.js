@@ -1,23 +1,20 @@
-import React, {Component, PropTypes as T} from 'react';
-import {render} from 'react-dom';
+import React, {Component, PropTypes as T} from 'react'
+import {render} from 'react-dom'
 
 class Exchange extends Component {
 
   constructor() {
-    super(...arguments);
+    super(...arguments)
   }
 
   _handleConvert() {
 
-    let amount = Number.parseFloat(this.bitcoinInput.value);
+    let amount = Number.parseFloat(this.bitcoinInput.value)
     if (Number.isNaN(amount)) {
       //quick error handling, not long term solution
-      return;
+      return
     }
-    let convertOptions = {
-      amount: amount,
-    };
-    this.props.onConvert(convertOptions);
+    this.props.onConvert(amount)
   }
 
 
@@ -29,13 +26,13 @@ class Exchange extends Component {
                ref={(ref) => this.bitcoinInput = ref}/>
         <button id="lookup" onClick={this._handleConvert.bind(this)}>Calculate</button>
       </div>
-    );
+    )
   }
 }
 
 Exchange.propTypes = {
   children: T.object,
   onConvert: T.func
-};
+}
 
-export default Exchange;
+export default Exchange

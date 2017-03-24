@@ -1,4 +1,4 @@
-Digital currency exchange
+Digital currency exchange redux version (not isomorphic)
 ================================
 
 
